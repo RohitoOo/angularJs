@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="rohitoApp">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,10 +21,13 @@
 
     <!-- Angualar  -->
     <script src="./lib/angular.min.js"></script>
+
+    <!-- Custom Modules -->
+    <script src="lib/app.js"></script>
     <title>AngularJS App</title>
   </head>
-  <body ng-init="numbers=[1,2,3,4,5]">
-    <div class="container" style="padding:10px">
+  <body >
+    <div class="container" style="padding:10px" ng-controller="formController">
       <h2>Angular App</h2>
       <div class="row">
         <form class="col s12">
@@ -64,10 +67,17 @@
           <div class="row">
 
             <h3 ng-repeat="a in numbers"> Rohito $ {{a * 10 }} </h3>
-            <h3 > Rohito $ {{a }} </h3>
+            <h3 > Rohito $ {{sum }} </h3>
           </div>
         </form>
       </div>
     </div>
+  
+  <div ng-controller="appMainController" class="container">
+
+    <h3> {{name}} : {{message}} </h3>
+  </div>
+  
+  
   </body>
 </html>
