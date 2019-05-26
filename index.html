@@ -72,33 +72,33 @@
           </div>
         </form>
       </div>
-
-      <nav>
-        <div class="nav-wrapper">
-          <form>
-            <div class="input-field">
-              <input
-                type="text"
-                ng-model="search"
-                placeholder="Search by Name OR Team..."
-              />
-              <!-- <label class="label-icon" for="search"><i class="material-icons">search</i></label> -->
-            </div>
-          </form>
+      <div ng-controller="appMainController" class="container">
+          <h3>{{ name }} : {{ message }}</h3>
         </div>
-      </nav>
 
-      <h5 ng-repeat="person in people | filter: search | orderBy : 'name'">
-        <span style="font-weight: bold">Name</span> : {{ person.name }}
-        <span style="font-weight: bold">Team</span> : {{ person.team }}
-      </h5>
       <div class="row">
         <h3 ng-repeat="a in numbers">Rohito {{ a * 10 | currency }}</h3>
         <h3>Rohito {{ sum | currency }}</h3>
       </div>
+      <nav>
+          <div class="nav-wrapper">
+            <form>
+              <div class="input-field">
+                <input
+                  type="text"
+                  ng-model="search"
+                  placeholder="Search by Name OR Team..."
+                />
+              </div>
+            </form>
+          </div>
+        </nav>
+  
+        <h5 ng-repeat="person in people | filter: search | orderBy : 'name'     " ng-show='person.registered'>
+          <span style="font-weight: bold">Name</span> : {{ person.name }}
+          <span style="font-weight: bold">Team</span> : {{ person.team }}
+        </h5>
     </div>
-    <div ng-controller="appMainController" class="container">
-      <h3>{{ name }} : {{ message }}</h3>
-    </div>
+
   </body>
 </html>
