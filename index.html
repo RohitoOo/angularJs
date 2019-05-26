@@ -23,6 +23,9 @@
     <!-- Angualar  -->
     <script src="./lib/angular.min.js"></script>
 
+    <!-- Angualar Routes  -->
+    <script src="./lib/angular-route.min.js"></script>
+
     <!-- Custom Modules -->
     <script src="lib/app.js"></script>
     <title>AngularJS App</title>
@@ -31,92 +34,6 @@
   <body>
     <!-- Top Menu Bar -->
     <ng-include src=" 'header.html' "></ng-include>
-
-    <div class="container" style="padding:10px" ng-controller="formController">
-      <h2>Angular App</h2>
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input
-                disabled
-                value="{{ firstName + ' ' + lastName }}"
-                id="disabled"
-                type="text"
-                class="validate"
-              />
-              <label for="disabled">Full Name</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s6">
-              <input
-                placeholder="First Name"
-                id="first_name"
-                type="text"
-                class="validate"
-                ng-model="firstName"
-              />
-              <label for="first_name">First Name</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                id="last_name"
-                type="text"
-                class="validate"
-                ng-model="lastName"
-              />
-              <label for="last_name">Last Name</label>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="row">
-        <h3 ng-repeat="a in numbers">Rohito {{ a * 10 | currency }}</h3>
-        <h3>Rohito {{ sum | currency }}</h3>
-      </div>
-
-      <form>
-        <input type="text" placeholder="What's Your Name?" ng-model="newPersonName">
-        <input type="text"  placeholder="Select Your Team" ng-model="newPersonTeam">
-        <div style="padding: 20px"></div>
-
-        <button class="waves-effect waves-light btn" ng-click="addPerson(newPersonName,newPersonTeam)"> Add User</button>
-      </form>
-      <div style="padding: 20px"></div>
-
-      <nav>
-        <div class="nav-wrapper">
-          <form>
-            <div class="input-field">
-              <input
-                type="text"
-                ng-model="search"
-                placeholder="Search by Name OR Team..."
-              />
-            </div>
-          </form>
-        </div>
-      </nav>
-      <div style="padding: 20px"></div>
-
-      Sort By Name OR Team
-      <Button class="waves-effect waves-light btn" ng-click=" order='name' " label="name" style="margin: 10px">Name </Button>
-      
-      <Button class="waves-effect waves-light btn" ng-click=" order='team' " label="Team" style="margin: 10px">Team </Button>
-<div style="padding: 20px"></div>
-      <h5 ng-repeat="person in people | filter: search | orderBy : order" >
-        <span style="font-weight: bold">Name</span> : {{ person.name }}
-
-        <span style="font-weight: bold">Team</span> : {{ person.team }}
-        
-        <button class="waves-effect waves-light btn" ng-click="deleteThisPerson(person)" style="margin-left: 100%" >x</button>
-        <div style="padding: 10px"></div>
-
-      </h5>
-    </div>
-    <div ng-controller="appMainController" class="container">
-        <h3>{{ name }} : {{ message }}</h3>
-      </div>
+    <main ng-view></main>
   </body>
 </html>
